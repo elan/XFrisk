@@ -1,0 +1,96 @@
+BPK's todo:
+	let enter hit the active window boxes
+	fix that stupid chat scroll problem
+	make some of that French English
+
+argon's todo:
+	Fix truecolor color editing.
+	Should be possible to click on a country to find its name somehow.
+
+
+Short Term Goals (v1.0) (in implementation order)
+=================================================
+
+X	1. Fix all reported bugs
+	2. New dialogs/views
+XX		o Statistics view
+		o New card view
+XXX		o New registration dialog (for computer players)
+		o Logging view
+		o Feedback view
+XX	3. Computer players.  Simple player.
+	4. Voting (for restarting game and the like)
+	5. Graphical toolbar similar to Microsoft apps.  Tooltips.
+		o Add Save/Load (to architecture independant file format).
+		o Change "Repeat Attack" to "Repeat Action"
+		o Connect/disconnect to server
+		o New Game
+		o Send Message
+XXX	6. Dynamic and optionally persistant color editing
+	7. Most popular changes on TODO list
+XXX		o Add the SO_NODELAY option
+		o Game options (through server)
+		o Better font handling (75 DPI/100 DPI)
+		o Bitmaps for cards.
+		o Mouse movement over a country displays name and continent.
+		o Add assertions for RISK_Get*Of[Country|Player]!!
+		o Man page!
+		o Have a larger version (not 800x600)
+		o Missions.  Abstract concept of "Game Over" so this is easy.
+		o Make font handling nice if it can't find first choice.
+
+Long Term Goals (v2.0)
+======================
+
+	o Rewrite in C++
+	o Aesthetic value (write my own widgets, sort of NeXTish, using
+	  primitives that can be mapped to Win32/X).
+	o GA or GP computer player
+	o Drag'n Drop for armies like MAC Risk (from dice window)
+	o Maintain bug level to near zero.
+	o Port to Windows95
+	o Menu bar
+	o Undo (Infinite, of course)
+	o GUI for server
+	o Make the game part more separate from GUI/Network, then implement
+	  a few other games over this: Scrabble (Rabble) and Monopoly.  Try
+	  not to get sued.
+
+
+SERVER (for future):
+====================
+	o Meta-server (which lets people download newest version 
+	  automatically).
+	o In case a player doesn't reconnect after disappearing, assign
+	  a computer player to continue the game.
+	o Make it so that client allocation is handled the same way as
+	  player allocation.
+	o Let newly joined clients take over for dead players, or perhaps
+	  also let already existing players take over (In general, this
+	  is allowing Player Migration).
+		
+CLIENT (in future):
+===================
+	o Have better support for atomic message passing (transactions).
+	  For example, ATOMIC stream of messages, or just define some atomic
+	  operations that correspond to one or more primitives (i.e.
+	  ALLOC_PLAYER, PLACE_ARMIES, etc...)
+	o Incorporate message ID into message itself.
+	o Make some network operations more like transactions, 
+	  for example MSG_MOVE, MSG_ATTACK, etc. -- perhaps composed
+	  of multiple dist. obj. primitive messages.
+	o Have _NET_* return Frisk error codes (instead of "... failed").
+	o Have non-debugging malloc check for NULL pointers.
+	o Add srandom() calls.
+	o Improve message set to reduce bandwidth (a PlaceArmy action takes
+	  4 messages currently, and there is overlap).
+	o Icon for the game (tiny world map?)
+	o Acknowlege the world gif??
+	o Clean code up and add function explanations!!!
+	o Limit size of buttons in Popup dialog, center them.
+	o Fix so that 1 bit X servers work.
+	o NET_GetStatistics for stats on bytes tx/rx.
+	o Use intro fonts for end of game message.
+	o Update the MSG_TURNNOTIFY message to just take the player.
+	o Choosing defense die?
+	o Display values of the continents.

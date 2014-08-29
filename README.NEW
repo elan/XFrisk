@@ -1,0 +1,44 @@
+v0.99c0
+=======
+
+	o Shift-click (left mouse button) on a country during a game to
+	  edit the color of that player dynamically, on a per-client
+	  basis!
+
+	o New registration dialogs, supporting new color editing, computer
+	  players, with improved UI friendliness.
+
+v0.99c0+bpk1
+============
+
+	o You can now add multiple armies at a time during
+	  fortification. This makes game setup a lot faster.
+	  (Use the right mouse button.)
+
+
+v0.99c0+argon1
+==============
+
+	o Supports 16-bit and 15-bit truecolor displays.
+
+
+v1.00
+=====
+	o Supports 16-bit truecolor displays, but not (apparently) 15-bit.
+
+
+v1.00+efnet10
+=============
+
+	o All of the above, plus a *lot* of bug fixes.
+
+
+v1.1
+====
+	o Actually never really existed, was develop version in cvs
+
+
+v.1.2
+=====
+	o Many fixes, see Changelog
+

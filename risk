@@ -1,0 +1,13 @@
+#!/bin/sh
+if ( test $# -eq 0 ) then
+    friskserver &
+    sleep 2
+    SERVEUR=localhost
+    aiColson $SERVEUR &
+elif ( test $# -eq 1 ) then
+    SERVEUR=$1
+else
+    echo "Usage $0 nom"
+    SERVEUR="lrim"
+fi
+xfrisk $SERVEUR

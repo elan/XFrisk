@@ -1,0 +1,32 @@
+o Sometimes the card list seems to get corrupted, which results in an
+  infinite stream of dialogs saying "Bogus request to CARD_RenderCard"
+  and trashes the game in progress. One time some wrong country counts
+  were observed in the stats window shortly before hand, but this may
+  not be related.
+
+o Sometimes if you remove a player and add a new one, particularly if
+  the old player had played in a game already, it doesn't fully go away,
+  and your messages get reported as coming from it instead of you. 
+
+o Should report FQDNs of people connecting. Should also be able to 
+  work out who people are during a game.
+
+o If you kill somebody off and end up with more than 9 cards (so you'd
+  need to exchange two sets to get to 5 or under) it doesn't let you,
+  and then you end up with six cards and things go rapidly downhill as
+  you exchange cards during other people's turns.
+
+  (Later note: this situation came up for me recently and didn't break
+  things, so maybe the problem went away or only occurs some of the time.)
+
+o Focus gets grabbed by Frisk when adding a player after popping down
+  color editing box.
+
+o Focus doesn't always get set right for the armies popup.  Doesn't get set
+  from main window to armies.
+
+o Two computers playing against each other dying doesn't restart the
+  game -- server bug?
+
+o Clients appearing after a new species registers are not notified of
+  the species.

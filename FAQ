@@ -1,0 +1,116 @@
+Frequently asked Questions (with answers):
+==========================================
+
+0. WHAT DOES "Error: Widget wDiceBox has zero width and/or height" MEAN?
+1. WHY IS MY DISPLAY ALL SCREWED UP/HOSED/POKED?
+2. I CAN'T GET XFRISK TO START.  WHY?
+3. HOW DO I START A MULTICLIENT GAME?
+4. WHAT ABOUT COMPUTER PLAYERS?
+5. IT SAYS "Assertion Failure" AND THEN DUMPS CORE.  WHAT DO I DO?
+6. I AM FROM PARKER BROTHER AND WANT TO SUE YOU.  WHAT DO I DO?
+7. IS THERE ANY WAY I CAN BUILD XFRISK WITH MORE DEBUGGING INFORMATION?
+8. HOW CAN I HELP?
+9. WHAT IS THE URL FOR XFRISK WEBSITE?
+
+********************************************************************
+
+0. WHAT DOES "Error: Widget wDiceBox has zero width and/or height" MEAN?
+ 
+   See question 1, the same solution applies.  IT SHOULDN'T HAPPEN AS OF
+   0.99b3, WHICH HAS DEFAULT RESOURCES!
+  
+1. WHY IS MY DISPLAY ALL SCREWED UP/HOSED/POKED?
+
+   Is the app resource file XFrisk.ad installed in the right place?  You
+   can change the XAPPLRESDIR environment variable to check in the current
+   directory by typing something like:
+
+	setenv XAPPLRESDIR /usr/lib/X11/app-defaults:./
+
+   IT SHOULDN'T HAPPEN AS OF 0.99b3, WHICH HAS DEFAULT RESOURCES!
+
+2. I CAN'T GET XFRISK TO START.  WHY?
+
+   If XFrisk is unable to find some of its files, "make install" again
+   in the XFrisk source directory to reinstall the data files and programs.
+
+3. HOW DO I START A MULTICLIENT GAME?
+
+   In order to set up a multiclient game, run friskserver on one
+   machine, and then run the clients on the remote machines as follows:
+
+	kashmir > friskserver &
+	...
+	silk > xfrisk kashmir &
+	...
+	cotton > xfrisk kashmir &
+
+   Clients may register players while the other clients join. The game
+   starts when all clients that have registered players have pressed
+   the start button (be careful about this, you might accidentally leave
+   out someone who is still registering a player or just connecting!).
+   Clients can connect at any time during a game to watch it, and
+   register players after the game has ended.
+
+   Also note: there can be more than one human player on the same client.
+
+4. WHAT ABOUT COMPUTER PLAYERS?
+
+   Computer players come as separate clients, named eg. aiColson
+   and aiConway. They get installed with the rest of the package in the
+   same directory as the xfrisk and friskserver binaries (BINDIR in
+   Makefile).
+
+   Once you have a server running, you need to connect them like this
+   (assuming you are running the server on your local system):
+
+	aiColson localhost &
+
+   When you select Add Player, you should see multiple entries in the 
+   Species box. Select a non-Human one (Ordinateur for aiColson), and
+   edit player info normally. You now have a computer player in your game.
+   You can add more than one AI species by repeating the above procedure
+   with another AI client program. Also note that once an AI species is
+   registered in the game anyone connecting to the server can add AI
+   players to the game. Anyone can also remove them.
+
+5. IT SAYS "Assertion Failure" AND THEN DUMPS CORE.  WHAT DO I DO?
+
+   In general, whenever you get a core dump, it would be greatly 
+   appreciated if you sent details to the developers -- it will result
+   in a more robust game for you. In order to send info, run a debugger
+   on the core file as follows (stuff in [] are comments):
+	
+	$ dbx [or gdb] server [or client] core  
+	dbx> where
+		
+   If you send the output of the "where", along with a description of how
+   it happened, then we'll probably have a fix ready within a few days
+   N.B.  You have to have compiled XFrisk with debugging in, see
+   question 8.
+
+6. I AM FROM PARKER BROTHER AND WANT TO SUE YOU.  WHAT DO I DO?
+
+   Yo no hablo ingles...
+	Sue not here!
+
+7. IS THERE ANY WAY I CAN BUILD FRISK WITH MORE DEBUGGING INFORMATION?
+
+   Yes.  Look in Makefile, and leave the developer's CDEBUGFLAGS 
+   uncommented.  Then remake XFrisk.
+
+8. HOW CAN I HELP?
+
+   If you find a bug you can send us a bug report.  Patches that improve
+   the game will be considered also, based upon their quality and 
+   desirability.  Patches that are included will be credited. You can
+   find contact information for sending patches on the XFrisk website
+   (see next question).
+
+9. WHAT IS THE URL FOR THE XFRISK WEBSITE?
+
+   http://www.iki.fi/morphy/xfrisk/
+
+   The URL redirects you to another site but please bookmark and/or
+   link only to the above URL as it is the official one.
+

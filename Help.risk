@@ -1,0 +1,359 @@
+%About Frisk and its original author
+Frisk was designed and written by Elan Feingold in 1994.  That's me.
+I got bored during the Christmas break of my senior year and
+designed Frisk, on paper, since I didn't have any hardware with me.
+Upon returning to school, I spent about three months working on it,
+between classes and general beer drinking, before getting a playable
+version.
+
+Since then I graduated from Cornell with a BS in Computer Science
+(what else?), and worked for Digital Equipment Corporation on their
+DECladebug debugger, which continuing to improve the game.
+
+Currently I work at AetherWorks Corporation
+(http://www.aetherworks.com), on a project called Jeeves.
+
+Frisk stands for Free Risk or Feingold Risk, depending on whether I'm
+feeling philanthropical or egotistical.  It is based on the Parker
+Brothers classic game, and I assume that they hold all the rights to
+the game.  If you people are reading this, please don't sue me...
+
+Frisk is my programming magnum opus in many respects.  It is the first
+full-length Xt/Xaw program I have written, and also the first to use
+UNIX network primitives.  Because of this, I am sure that in some
+places my code will be non-optimal.  I would greatly
+appreciate feedback on it, either in the form of suggestions for
+improvements, or "Man, your code sucks..." (although the latter might
+cause psychological damage).
+
+Note: XFrisk is currently maintained by a different team of developers, 
+so be easy on Elan. It might not be his bugs. See file "FAQ" in sources
+for maintainer contact info.
+%%
+
+%Acknowledgements
+I wish to express my profound gratitude to the following people,
+without whom Frisk could have never come into existence:
+
+- Kirsten Mecklenburg: For her love and understanding.  It isn't easy
+to be the girlfriend of a CS major.  I'll be the first to recognize
+that.  Thanks for being there (and for the coconut macaroons)!
+[Update: Hum, she's actually my ex-girlfriend now, but still my best
+friend!]
+
+- Will Kling:  For hiring me and being infinitely helpful during my
+migration up to NH.  He actually inspired me to write the game, since I
+thought he and my other future co-workers would need a fun network game to
+increase productivity.
+
+- Robert Watts:	 For his infinite patience in play-testing Frisk.
+Even though he had nasty Quantum problem sets due, he would never
+refuse a good game of Frisk.  Also for the acoustic versions of Layla
+while I programmed.  Music calms the savage CS major.
+
+- Michael Plochocki:  For being my token Macintosh user friend.
+His general ineptness with user interfaces helped me improve the ergonomics
+and user-friendliness of Frisk.  But seriously, his invaluable suggestions
+helped mold Frisk into the game that it is.  Thanks also for the late night
+chats about politics, religion, and of course, girls.
+
+- Darrin Edelman:  For his encouragement and suggestions.  If he had
+been living here instead of working for IBM like the loser that he is,
+I'm sure he would have been a great help to the project.  Here's to keeping
+in touch after college. [Update: we now work together at AetherWorks!]
+
+- Philip Soo:  For letting me drag him in to see the latest
+improvements in the game.  Phil has a knack for crashing anything in
+very little time.  You can be assured that this program is Phil-proof.
+
+- Steve Thompson:  For his feedback, and for hiring me to work in his
+lab, which gave me access to all sorts of platforms to test Frisk on.
+For his sense of humor, even though the HP's were down more than they
+were up.
+%%
+
+%Credits
+This section holds all of the people who have submitted bug reports
+and new features for Frisk, along with people who have contributed in
+other ways (new ports, suggestions, etc.)  It may not be exactly up
+to date, so if you submitted a report and don't see your name on here,
+don't panic.
+
+- Port to HPUX: Richard Lloyd
+
+- Port to SunOS/Solaris: Michael Davies, Matthew D. Stock
+
+- Port to AIX: Miguel Alvarez Blanco
+
+- Bug reports, testing, encouragement, help: David La Croix, CyberDrunk,
+Bruno Levy, Sam Louken, Al Longyear, Miguel Alvarez Blanco, Matthew D. Stock
+(thanks for the patch and the suggestions!), Andy Tefft, Bob Willmot,
+Martin Schulze, Charles Henrich, Glenn Rysko, John Kilburg, Michael Davies,
+Nicolaus Christiaan Thirion, Tom Tromey, Jeffrey David Cohen,
+Martin Wunderli, Mark Phillips, Robert Seals (thanks for all the help!),
+Craig Humphrey, Dave Lemke, Mario Antonioletti, Erik deRomph, Joel Fine,
+Bart Massey, Rick Niles, Davin Milun, James J Richmond, Joshua R. Poulson,
+Darin Johnson, Andrew R. Tefft, Clayton Haapala, Sydnor Francis,
+Ken DeMerchant, Bob Tanner, Marco Choi.
+
+%%
+
+%Development Platform
+Frisk was written on an i386SX/16, with 8 Mb of memory, running Linux.  
+The only thing saving me from insanity was my S3 video card,
+which made X quite usable.  Having another 8 Mb of memory would have
+been great too, except that my motherboard only supports 8Mb!  [Update: 
+Now I work on a dual PPro 200Mhz with 256Mb of RAM -- times change...]
+%%
+
+%Reaching the Author
+I can be reached via e-mail as elan@jeeves.net, and via
+snail-mail as:
+
+	Elan Feingold
+	6434 City West Pkwy. (6301)
+	Eden Prarie, MN 55344
+
+Send me a postcard if you like!
+
+For issues concerning XFrisk development, like bug reports, patches and
+suggestions, you are advised to contact the development team. See file
+FAQ in sources for contact info.
+%%
+
+%Copyright
+The source code is Copyright (c) Elan Feingold 1993-1999. XFrisk was placed
+under the GNU General Public License (GPL) November 8th 1999. See file COPYING
+for license conditions.
+
+Frisk was originally released as Poor-Engineer-ware.  That means that the
+program is free, but if you like it you are welcome to send me cookies, money,
+or other donations that might improve my engineering career.  If anyone has a
+spare Porsche 928, I could use it.  Beer is fine, too.  
+
+This is the Copyright notice that appears in each of the source files:
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place, Suite 330, Boston, MA 02111-1307 USA
+%%
+
+%Interface Notes
+There are two message boxes where messages can appear, notifying you
+of some event or error.  These two long rectangular boxes are located
+above and below the row of buttons.  The upper box normally holds
+comments related to what you are doing, i.e. what country you have
+selected, or what you are expected to type into a pop-up box.  The
+lower box generally holds error messages, although it can also contain
+informative messages, too.
+
+The number of attack die, as well as the default attack style (Single
+or Do-or-Die) is saved for each player, and restored when the player
+starts his or her next turn.
+%%
+
+%The Game
+The rules of Frisk are identical to the rules of Parker Brother's Risk
+game.  The style of the game defaults to the server selecting the
+initial allocation of countries, and card exchanges being performed on
+a static basic (i.e. 3 different cards = 10 armies, 3 cavalry = 8
+armies, 3 infantry = 6 armies, and 3 artillery = 4 armies).  In this
+version, this is the only style of game supported.
+
+If you are not familiar with the rules of Risk, you are advised to
+learn them from another source, as this help does not attempt to fully
+explain all of the nuances of these. See the XFrisk website (URL
+for it is in file FAQ of sources) for helpful links.
+%%
+
+%  Registering Players
+Before beginning the game, you must register players with the Frisk
+server.  You do this by typing a name and a color for the player, and
+then clicking on "Register Player."  The color can by any one
+recognized by the X11 server, which comprise the colors listed in
+rgb.txt, normally located in /usr/lib/X11.  All normal colors are
+there, i.e. yellow, green, pink, orange, along with some rather
+interesting others, such as gold, forest green, turquoise, and others.
+For most colors, a digit from 1 to 4 can be appended to the color name
+to generate successively darker tones of the color. Press the return
+key after typing in the color name to update the color scrollbars and
+example country image - this does not close the dialog.
+
+If you have connected an AI client to the server, there will be several
+options in the Species box. Select one of the non-Human options to
+create a computer player. (See the file FAQ for more info on computer
+players)
+
+At this time, if the game is being played over the network, other
+players may register simultaneously.  Is the case that a player
+registers from a remote computer, the server will send all clients a
+message informing of this.
+
+When you are done registering players, click on "End Registration."
+At this point, if there are a total of two or more players, and all
+other clients have finished registering, play will commence.  If all
+clients finish registering and the total number of players is less
+than two, the game will not be able to start, and the registration
+will have to begin again, after each client exits and restarts.
+%%
+
+%  Reinforcing Countries
+You may reinforce a country by clicking on the country that you wish
+to place an army on.  In styles of games that support reinforcing
+countries, reinforcing is staggered between players, with each player
+being able to reinforce one country with one army in one turn.
+%%
+
+%  Placing Armies
+To place an single army, click the left mouse button on the country
+that you wish to place the army on.  To place multiple armies, instead
+click on the country with the right mouse button, and a dialog will
+pop up asking you to specify how many armies to place.  The text
+widget grabs the keyboard, so that you need not move the mouse to the
+dialog, and if the default number of armies is to your satisfaction,
+you need only hit <Enter>.  To place your all armies on a country, press the
+middle mouse button when you are on the country (the middle mouse button
+is usually emulated by pressing both mouse buttons on a two-button mouse).
+%%
+
+%  Attacking
+First click on the country to attack from, and then click on the
+country you wish to attack.  The appropriate error messages for either
+of these two country selections will appear in the lower message box.
+If the country you have selected to attack from is valid, the text
+containing the number of armies in the country will light up.  If your
+attack removes all of the enemy armies from the country you are
+attacking, you will be prompted with a dialog asking you how many
+armies to move into the country.
+
+If you wish to cancel an attack, you may click on "Cancel Action."  If
+you had selected a country to attack from, this will be unselected.
+%%
+
+%  Moving Armies
+First click on the country you wish to move armies from, and then
+click on the country you wish to move them to.  If the source and
+destination countries are valid, a dialog will be presented to you, in
+which you can enter the number of armies to move.  If you decide that
+you want to do more attacking, simply click on one of the attack
+actions and if you haven't moved armies, you can continue to attack.
+
+Once you have completed a valid move, your turn is ended, and Frisk
+notifies the server and the next player is now allowed to go.
+%%
+
+%  Attack Die
+This parameter is set by selecting an entry in the list-box in the
+lower left hand corner of the screen.  If you select "Auto," then the
+maximum number of dice will be used.
+%%
+
+%  Action
+This list-box, to the right of the Attack Die list-box, serves to select
+the action that you wish to perform.  Appropriate error messages will
+be issued if you try to enter into illegal actions.
+%%
+
+%    Place Armies
+Upon beginning your turn, this is the state that Frisk enters.  You
+will remain in this state until you finish placing all of your armies.
+%%
+
+%    Single Attack
+This state specifies that when you select a source and destination
+country, only one attack is to be performed.  You may repeat the
+attack by clicking on "Repeat Attack."
+%%
+
+%    Do-or-Die Attack
+If you select this attack mode, then when you specify a valid attack, the
+computer will continue to attack until the territory has been conquered, or
+you don't have enough armies to continue attacking.  N.B.  There is no way
+to stop the attack once you have initiated it!
+%%
+
+%    Move
+This action has an identical interface to an attack.  Select the source
+country by clicking on it.  Then click on the destination country.  A pop-up
+dialog will appear asking you how many armies to move.  If you are satisfied
+with the amount (by default all but one), simply hit <Enter> or click on
+OK. If you are not, move the mouse to the edit widget, and edit the number.
+When you are finished hit <Enter> or click on OK.
+%%
+
+%  Sending Messages
+Click on a player in the Message Destination list-box, or on "All Players" to
+broadcast the message.  Type in your message in the long message entry widget
+above the box that displays messages from the server, and then hit <Enter>.
+Your message will be sent immediately.  You could use the feature to send
+covert messages, or establish secret alliances!  You could just use it to
+insult other players, of course.
+%%
+ 
+%Future Enhancements
+
+Note: These are old comments from Elan. At least the simple computer player
+has been implemented already, for many other features there are currently no
+plans.
+
+Look in the file TODO for features/bugfixes in the works.
+Look in the file ChangeLog for features implemented/bugs fixed.
+There are the enhancements I want to make for version 1.0 (in no real order):
+
+	o Computer Players.  Simple player.
+
+	o New statistics and logging dialogs.
+
+	o New registration dialogs (grabs focus, better color selection).
+
+	o Change the scheme of all big dialogs to use message passing only.
+
+	o A graphical toolbar with tooltips.
+
+	o Save/Load.
+
+	o Join Game/Leave Game.
+
+	o Restart game (calls for voting protocall).
+
+	o Change "Repeat Attack" to "Repeat Action"
+
+	o Add game options (distributing countries, missions).
+
+	o Dynamic (and optionally persistant) player color editing.
+
+There are my longer term goals (version 2.0?), in no particular order:
+
+	o Increase the aesthetic value of the game (3D map, new NeXTStep-like
+	widgets?).
+
+	o Genetic Programming computer player.
+
+	o Drag 'n Drop for armies from dice window like MAC-Risk?
+
+	o Nicer color selection (color cube (square))?
+
+	o Port to Windows 95!
+
+	o Menu bar instead of the widgets at the bottom of the screen?
+
+	o Make the whole thing better abstracted in terms of OS and GUI.
+
+	o Undo feature.
+
+	o GUI for server, to pick game options, show statistics?
+%%
+
+
+
+

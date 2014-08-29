@@ -1,0 +1,705 @@
+
+VERSION LIST:
+=============
+	o v1.2
+            Fixed:
+            		o colormapping in truecolor, especially the world mapanciq
+                        o fixes in color dialog, color player in dialogs
+                        o speedup in colormapping/gui
+                        o dice were not correct
+                        o graph shows more now
+                        o greenland card now shows
+                        o options for number of armies to drop during fortify
+                        o restructuring/cleaning up code
+                        o a start with using doxygen for documentation
+                        o moving language stuff to language.h
+            		o using cvs now
+                        
+            Known bugs:
+            		o scrollbars in colordialog don't get initiated right
+                          they receive wrong values, and thus ignore these 
+                          (Xaw code)
+                        o gui may load in bad colors in 8bpp
+                        
+	o v1.1
+	    MAJOR CHANGE:
+			o License changed to GNU GPL version 2,
+			  see file COPYING for details
+
+	o v1.00+efnet10
+		   Added:
+			o ChangeLog entry for v1.00, which apparently
+			  got forgotten in the 1.00 release.
+			o Merged v1.00 with +bpk2+pac3+argon5.
+			  "efnet10" is this patch collection. (efnet
+			  is an irc network.) The version names have
+			  been altogether too long lately.
+		   Fixed:
+			o Some minor glitches in v1.00.
+			o Report the version string correctly.
+	
+	o v1.00
+		   Added:
+			o Merged the +argon1 patch.
+
+		   Fixed:
+			o Cleaned up rgb handling.
+			o Some fixes to non-pseudocolor mode operation.
+			o Other minor cleanup.
+	
+	o v0.99c0-pl9+bpk2+pac3+argon5
+		   Fixed:
+			o Cleaned up makefiles a bit. Include hack version
+			  of snprintf for use when necessary.
+	
+	o v0.99c0-pl9+bpk2+pac3+argon4
+		   Added:
+			o Removed diceAI.c; it was an extraneous copy of
+			  aiDice.c.
+			o Assorted cleanup, abolition of globals, etc.
+		   Fixed: 
+		   	o Still more language fixes.
+			o sprintf -> snprintf.
+
+	o v0.99c0-pl9+bpk2+pac3+argon3
+
+		   Fixed: bug in +pac2.
+
+	o v0.99c0-pl9+bpk2+pac2+argon3
+
+		   Fixed:
+			o Fixed makefile lossage in +argon2.
+			o Don't install app-defaults since they seem to
+			  disable some features. (!)
+			o Fixed conflict between two global "hFile" vars.
+			o More language fixes.
+			o Include alternate makefile for pmake on BSD
+			  boxes. 
+
+	o v0.99c0-pl9+bpk2+pac2+argon2
+		   Fixed:
+			o The server was making an assumption about turn
+			  order, which turns out to be false when bpk's
+			  multiple-fortify feature is used. Server no longer
+			  makes this assumption.
+			o Another bogus assertion patched ("player has cards
+			  and shouldn't")
+			o Added bounds checking on a certain XGetPixel in
+			  colormap.c (patch-dossy1)
+
+	o v0.99c0-pl9+bpk2+pac1+argon2
+
+		   Added:
+		   	o Merged pl9 and pac1 (and thus bpk2) fixes.
+
+		   Fixed:
+			o Updated install docs to reflect absence of
+			  imake. 
+
+	o v0.99c0-pl9.pac1:
+
+		   Added:
+			o 15- and 16-bit colormap support from argon.
+			o Merged pl9 changes with pl8.bpk2.
+
+		   Fixed:
+			o Fixed it so -DDEBUGGING doesn't make it bomb out
+			  from bogus assertions!
+
+	o v0.99c0-pl9:
+
+		   Fixed:
+			o Imakefile: added -I/usr/openwin/include to
+			  CCOPTIONS in #ifdef SunArchitecture
+			o Fixed some English/French #ifdef oopses, result:
+			  more English comes through
+
+	o v0.99c0-pl8.bpk2:
+
+		   Fixed:
+			o Fixed an infinite loop bug in aiConway.
+
+	o v0.99c0-pl8.bpk1:
+
+		   Fixed:
+			o Place multiple armies during fortification.
+			o Made a few grammar corrections.
+
+	o v0.99c0-pl8+argon2
+
+		   Fixed:
+		   	o Spelling and language fixes ("Infantery", 
+			  "Cavalery", etc.)
+			o 'bool' is a reserved word in C++, don't use it.
+			o Use random/srandom instead of rand/srand.
+			o Fix assorted compiler warnings. Compile with
+			  -Wall -W.
+
+	o v0.99c0-pl8+argon1
+
+		   Added:
+		   	o Support for 16-bit and 15-bit truecolor.
+
+		   Fixed:
+			o Got rid of Imakefile, use real makefile.
+
+
+        o v0.99c0-pl8:
+
+		    Fixed: 
+		        o Doling out of initial armies was incorrect --
+		          too many armies were being given (12.7.95)
+			o Color editing was broken -- fixed it (12.7.95)
+
+	o v0.99c0 - Added:
+			o Computer players!!! (3.30.95)
+			o The first MVC view -- the Statistics View. (2.19.95)
+			o A new registration procedure, with 2 new dialogs.
+			  Supports computer players, new color editing 
+			  procedure, etc. (1.29.95)
+			o A README.NEW files to describe from a user's 
+			  standpoint what has changed. (1.26.95)
+			o Moved all of the Xt translation tables to the
+			  X resource file. (1.24.95)
+			o A Color section dialog for editing colors and
+			  selecting colors at the beginning of the game.
+			  (1.23.95)	
+			o Set TCP_NODELAY option on sockets, in hopes of
+			  making game snappier. (1.22.95)
+			o Added versioning control to the connect protocol.
+			  Client and server must have the same version.  If
+			  this is too strict I can change it later. (1.23.95)
+			o Began design of general distributed object framework,
+			  based on a subset of the CORBA IDL, possibly with 
+			  extensions.  Will support transparent distributed
+			  objects (i.e. they can be local or remote, client 
+			  invocation is identical).  Will facilitate directory
+			  services, acting as a meta-server for games going on,
+			  and for clients.
+			      i.e.
+
+			        dir->getListOfGames("Risk*\\|Mono*",
+				                    CurrentlyPlaying);
+			        dir->registerGame("Risk", 
+                                                  "avette.zko.dec.com");
+
+                          If it wasn't clear already, the bindings will be
+			  C++ based, with possibly future bindings for
+			  Eiffel and Smalltalk.  This all implies quite a
+			  large rewrite of Frisk.
+
+		    Fixed:
+                        o Added an #include <sys/types.h> to debug.h.
+                          Thanks to Jarno Kokko for pointing this out!
+                          (6.14.95)
+		        o Simplified handling of players & clients leaving the
+			  game. (5.20.95)
+		        o A bug where the "add player" dialog wasn't checking 
+			  if SpeciesToSlot was returning -1 ==> Core dump.
+                          (5.13.95)
+                        o A terrible bug when exchanging a set of cards
+			  including a joker, it would try to fortify to
+			  corresponding territory (which doesn't exist, of
+			  course!)  Thanks to Alan Bowsher for finding
+			  this one!! (5.13.95)
+			o Fixed a retarded bug in UTIL_NumPlayersAtClient,
+			  which wasn't checking to see if the players were
+			  allocated.  This resulted in a segfault when
+			  sending a message from a client that used to
+			  have a player but now didn't. (5.13.95)
+
+                                             ------ o ------
+
+			o A bug where the wrong species was being selected 
+			  (5.6.95)
+		        o An obnoxious bug where the label in the popups 
+                          wouldn't be big enough. (4.30.95)
+		        o Multiline messages get handled better -- the
+		          whole message gets displayed.  It's not perfect,
+		          but it's much better than before.  Xaw widgets
+		          suck. (4.30.95)
+		        o Fixed an assertion failure in the server. (4.30.95) 
+		        o Cleaned up some of the code in the server.  The game 
+			  was being reset more than once in some cases. 
+                          (4.30.95)
+			o A heinous card bug whereas the right cards would
+                          be exchanged, but a different set would be removed
+			  from the player!  Thanks to Jarno Kokko for pointing
+                          this one out.  (4.23.95)
+			o Armies popup no longer grabs keyboard. (4.11.95)
+			o Better and more consistant messages upon startup 
+			  of clients. (4.11.95)
+			o Fixed repeating "Game is over..." message. (4.11.95)
+			o A few more bugs in the server related to games 
+			  starting. (4.11.95)
+			o Fixed a bug where a color on one client might not be
+			  displayable on another -- the new code gets the
+			  closest displayable color on each client (4.6.95)
+			o A few bugs related to games restarting after a client
+			  crashed or exited. (4.4.95)
+			o A problem with the dist. obj.  It had some data
+			  members (iNumPlayers, iNumLivePlayers, etc.) that
+			  were distributed the same as the other data
+			  members.  However, they weren't minimal (intrinsic)
+  			  data -- it could be calculated.  And when a client
+			  called RISK_SetAllocationStateOfPlayer(iPlayer, 
+		          ALLOC_COMPLETE), before it called RISK_SetNumPlayers,
+			  there was an inconsistancy, which led to a race
+		          condition. (4.1.95)
+			o Added SO_REUSEADDR as an option to the server socket.
+   			  This prevents the server not being able to start 
+			  because of a crashed client, I think.  It should help
+			  at the very least. (2.27.95)
+			o Moved the dist. obj. messages MSG_OBJ[INT|STR]UPDATE
+			  into riskgame.c, for better encapsulation. (2.25.95)
+			o Cleaned up the registration phase in the server, 
+			  fixed some minor bugs, not of much interest. 
+			  (1.22.94)
+			o Fixed another card bug, which was letting players
+			  on other clients exchange cards, to the detriment
+			  of the game.  This caused core dumps, and wierd 
+			  card behavior.  (2.21.95)
+			o Fixed the invariant "RISK_[Set/Get] should
+			  only be set on valid players or countries." which
+			  means that before while loops ran to MAX_PLAYERS,
+			  now they run to RISK_GetNumPlayers... (2.19.95)
+			o Strengthened the semantics of object callbacks to
+			  occur _before_ or _after_ the state of the
+			  distributed object has been updated (so that the 
+			  before/after values can be seen). (2.15.95)
+			o A bug in the server that caused an assertion to
+			  trigger because iServerMode wasn't equal to
+			  SERVER_REGISTERING when it should have been.
+			  (1.24.95)
+			o Pointer arithmetic that wasn't ANSI-C in network.c
+			  (1.21.95)
+			o Changed the "developer's configuration" to not
+			  include gcc-specific flags. (1.23.95)
+
+	o v0.99b4 - Added:
+			o More comments in the Imakefile. (1.10.95)
+			o Long and short term goals for Frisk in TODO 
+			  better organized and prioritized. (1.17.95)
+		    Fixed:
+  		        o The elusive card related bug that caused
+  			  core dumps mostly on SunOS/Solaris machines.
+  			  I'm positive that this one is finally
+  			  dead :) (1.15.95)
+  		        o A bug in the code that deleted old message 
+  			  destinations when clients exited.  New code
+  			  works like new windows (cards, stats, etc.)
+  			  will, by receiving messages (events) and
+  			  acting on them. (1.15.95)
+  		        o Got rid of most remaining memory leaks. (1.15.95)
+  		        o Initialized `iTo' field in a few places to 
+  			  avoid uninitialized memory (even though the
+  			  field was not being used.) (1.15.95)
+			o `make install' now installs `risk'. (1.10.95)
+			o Rules in the Imakefile to install date files
+			  and programs changed to obey LIBDIR and BINDIR.
+			  (1.10.95) -- thanks to Rick Niles for suggesting
+			  this.
+			o INSTALL updated to reflect changes. (1.10.95)
+			o Changed the exit values of findtypes to be -1 for
+			  cases in which the program couldn't find the needed
+			  types. (1.10.95)
+
+  	o v0.99b3 - Added:
+			o Fallback resources.  No more resource woes!! (many 
+			  people had mentioned this). (12.31.94)
+			o When loading one of the data files, the client
+			  now checks in the current directory, as well as the
+			  one specified by FRISKPATH, to make users lives'
+			  easier. (12.31.94)
+			o The year 1995 to the Copyright.  Hopefully it will
+			  be a good year for Frisk :) (12.31.94)
+			o Checks in _NET_Recv* to make sure that the number
+			  of bytes read was the number expected. (1.1.95)
+  		    Fixed:
+			o Changed player message sending so that if the 
+			  message is coming from a client with more than
+			  one player, if the current player is at the client,
+			  the message comes from him or her.  This seemed to
+			  make more sense, since the person who's turn it is
+			  would seem to have control of the keyboard/mouse.
+			  (1.9.95)
+			o Changed an if..else to assert. (1.9.95)
+			o A vulgar error message was made less so. (1.8.95)
+			o A "free" card was being given to the first player
+			  at the client that won the previous game.  (Thus,
+			  the problem would not occur in very first game that
+        		  the client is involved in.)  This was a result of 
+			  UTIL_EndTurn not being called when a player wins, 
+			  and the global "player gets card at the end of 
+			  turn" flag not getting reset. (1.5.95 -- DFE)
+			o Some arg/format mismatches in debug.c. (1.2.95)
+			o Some dependencies in the Imakefile so that one
+			  can type `make friskserver' or `make xfrisk' and
+			  have it work. (1.2.95)
+			o Updated the Help file to be more up-to-date. (1.2.95)
+			o The color coded player turn indicator no longer
+			  starts out as a random color -- it's set to black.
+			  (1.1.95)
+			o _NET_Recv* and _NET_Send* (the backbone of 
+			  Frisk communications) now correctly handle cases
+			  in which the read()/write() calls do not read/write
+			  the entire block of data.  This fixes the
+			  obscure, nondeterministic, and quite hard to track
+			  down problem of bogus messages when I was running
+			  Frisk over a 9600 baud SLIP link.  It could 
+			  conceivably be the cause of many little problems, 
+			  but 99.9% of them would lead to a bogus message, 
+			  which would have resulted in the termination of the
+			  client (or server).  I'm _really_ glad to lay this 
+			  one to rest! (1.1.95)
+			o Fixed a memory leak in riskgame.c, which happened
+			  whenever replication was done. (1.1.95)
+			o Fixed an assertion trigger when notifying a new 
+			  client of who's turn it was -- the invariant for
+			  iTurn had changed, and I hadn't updated the code.
+			  (1.1.95)
+			o Clarified some more things in INSTALL. (1.1.95)
+			o Delinted sources.  Nothing major discovered.
+			  (12.31.94)
+			o Made the whole app a little bit wider, so that the 
+			  total size sans WM is 800 pixels (it was a few 
+			  pixels less).  Also fixed a few other off-by-one 
+			  errors in other widgets. (12.31.94)
+			o Changed the comments in the resource file to be 
+			  "!" comments, and not C comments. (12.31.94)
+ 			o Stopped the Makefile from installing buildmap, which
+			  seemed pointless. (12.31.94)
+			o Corrected the declaration of GUI_GetNumColorsInMap
+			  to be static. (12.31.94)
+			o Grammar correction -- "1 die, 2 _dice_, etc." 
+			  (12.31.94)
+			o Cleared up error mesages to make them more helpful
+			  and precise. (12.31.94)
+			o A bug in the card scaling that probably caused
+			  the elusive SEGVs reported by various people.  The
+			  card scaling now uses a slick version of Bresenham's
+			  algorithm to scale the country images using only 
+			  integer arithmetic.  (12.31.94)
+			o A bug in the die coloring, I wasn't updating enough
+			  with my caching scheme, so the die colors weren't
+			  always right. (11.27.94)
+			o A serious bug I introduced fixing another, that
+			  would trigger an assertion failure or mess things up
+			  in some cases when a player killed another.  The bug
+			  was in SRV_IterateTurn(). (11.27.94)
+			o Added a step to the INSTALL procedure that 
+			  describes setting the XAPPLRESDIR environment
+			  variable (thanks, Martin!) (11.27.94)
+			o Changed <strings.h> to <string.h>, since in general,
+		  	  most platforms' strings.h simply includes string.h.
+			  This should help the compile on some machines, and
+			  hopefully not break it on others :) (11.27.94)
+
+  	o v0.99b2 - Added:
+			o The server now warns when another server is
+			  running, instead of exiting with a cryptic message.
+			o Code in MEM_Free that NULLs the pointer that is
+			  being freed, so as to catch references to bogus
+			  pointers.
+  	                o Some code in colormap.c that copies over colors from
+  			  the window manager to Frisk's colormap, if it
+  			  allocates a private one.  This makes Frisk with
+  			  a private colormap a bit prettier, and reduces
+  			  the flicker when entering and exiting the window.
+  			o A question to the FAQ.
+			o Clients now broadcast a message out when one of its
+			  players exchange cards.
+			o A shutdown call to hopefully help out the server
+			  port hanging out after the server exits.  Not
+			  sure it will though.  SO_REUSEADDR isn't good because
+			  it lets there be more than one server around.  
+			  SO_[NO]LINGER didn't seem to be doing anything.
+			o A thicker border between Asia and Europe as 
+			  requested, to be able to differentiate the 
+			  continents, as per requested by many.
+			o The option to display remote dice rolls.  Each dice
+			  roll takes exactly 3x2x4+4 = 28 bytes.  Eventually
+			  there should be an option to not send this 
+			  information.
+			o Made the TEST_GAME mode more intelligent.  It gives
+			  all of the countries to one player, and then one
+			  country each to the rest.  Each player is given two
+			  armies to place after the country distribution.
+			o Changed the "A new client, xxx, has registered" to
+			  add quotes around the name of the client, to be
+			  consistant.
+			o Graphical notification of moves, attacks, and 
+			  placements by players at remote clients.  
+			  If one country is involved (place), the country
+			  lights up for a defined amount of time (if further
+			  actions take place with that country, the country
+			  simply remains lit longer.  If there are two 
+			  countries involved, then the source country lights
+			  up and a line a drawn from the source country
+			  to the destination country.  The line is left up for
+			  the same amount of time as the country, currently.
+			  This makes remote play much friendlier, IMHO.  It's
+			  much clearer who's doing what, and where.  Comments
+			  are more than welcome.  The line only appears for 
+			  the first attack if multiple attacks are performed
+			  on the same country, a la do-or-die.
+			o Added verbose notification of remote players 
+			   changing state (i.e. "xxx is attacking.", "xxx is
+			   moving armies.", etc.).
+
+			  N.B. With this change, and the remote dice rolls, 
+			       I'm ready to do computer players.  The scoop 
+			       is, they will be linked against a library 
+			       that resembles a client.  Thus, computer 
+			       players have their own clients and communicate 
+			       with the server the same way other players do.
+			       This way, the development cycle for computer
+			       players is simplified, and they can't crash
+			       or hold up the server.  They algorithms that
+			       play will call GAME_PlaceArmies, 
+			       GAME_MoveArmies, and GAME_Attack, just as 
+			       clients do now, and will have full (read-only)
+			       access to the distributed object.  I'd like
+			       to do a computer player that uses a genetic
+			       algorithm (heuristic encodes as bitstring
+			       that represents "Risk assembly language"?)
+
+  	            Fixed:
+			o Fix "move armies" --> "do or die" transition.  It was
+			  jumping to whatever the player's default was. 
+	 		  (11.19.94)
+			o Fixed so that new player information wasn't printed
+			  at remote clients twice. (11.16.94)
+			o A bug where cards of freed players weren't being 
+			  returned to the deck.  It didn't really matter
+			  because a new deck is being used for each new game
+			  anyway. (11.6.94)
+			o A bug where the number of live players would not
+			  be kept correctly, and the number would end up as -1
+			  at the end (caught by an assertion failure). 
+			  (10.30.94)
+			o Fixed a bug where I wasn't initializing the 
+			  distributed object for the client soon enough. 
+			  (10.30.94)
+  		        o Set default color for foreground as black. (10.8.94)
+  			o Changed TESTGAME to be TEST_GAME, made more
+  			  sensible. (10.8.94)
+  			o Changed finite state machine in server to have one
+  			  extra state, SERVER_FORTIFYING, and added support
+  			  code, to fix a bug related to fortification when 
+  			  the number of countries doesn't distribute evenly
+  			  among the players (e.g. 4 players, 5 players, 
+  			  8 players and 10 players). (10.8.94)
+  			o The bad color for army number bug (the army number 
+  			  on the countries was being printing in a wierd 
+  			  color when Frisk was using a private colormap). 
+	     		  (10.8.94)
+			o A bug where I was freeing a client that I didn't
+			  allocate. (10.15.94)
+			o A bug where exchanging 3 jokers wouldn't give you
+			  10 armies, as it should. (10.15.94)
+			o A bug where an assertion failure would trigger,
+			  because the server was trying to SetNumLivePlayers
+			  on a player who was dead already. (10.15.94)
+			o A bug that occurs when the last player kills
+			  another player, iTurn gets messed up and goes to
+			  the 1st and not 0th player.  This bug would appear
+			  in other cases where a player killed another (not
+			  the last). (10.29.94)
+
+	o v0.99b1 - Added:
+			o Architecture detection utility (which generates
+			  types.h file with Int32, UInt32, etc. definitions.
+			o Cleaner definitions of derived types that don't
+			  clash with the ubiquitous Xt types.  Changed all
+			  'String's to 'CString's and all 'Boolean's to
+			  'Flag's -- cause gcc defines Bool, I believe?
+			  Phooey...
+			o Cleaned up debug.[c|h] for other architectures.
+
+		    Fixed:
+			o Bug in the server, wasn't handling a player
+			  allocation correctly (like a transaction). (10.4.94)
+			o Bug in the server, wasn't breaking out of
+			  handling MSG_DEREGISTERCLIENT when mode was
+			  SERVER_PLAYING. (10.3.94)
+			o lack of check for hFile being NULL. (10.3.94)
+			o Data type of pointer data in debug.c (10.3.94)
+			o Prototype of CLNT_Init. (10.3.94)
+			o Added semicolons to default case in order to 
+			  compile with Alpha OSF/1 cc. (10.3.94)
+			o Patches to compile on OSF/1 (and hopefully
+			  other 64 bit machines). (10.3.94)
+			o Changed Int to be Int32, and so forth, in an effort
+			  to make Frisk more portable between different
+			  compilers and architectures. (10.3.94)
+
+	o v0.99b0 - Added:
+			o Patches to compile on AIXv3.
+			o Patches to compile on SunOS 4.1.x.
+			o Patches to compile on HP-UX 9.x.
+			o Cleaned up riskgame constructors.
+			o Many assertions to catch mistakes.
+			o Signal handlers to help server clean up, and
+			  tell clients when killed.
+			o Error handling improved, server MUCH more robust.
+			o Handling of client/server failures.
+			o Separated specific parts of the riskgame object
+	   		  into client and server modules.
+			o Redesigned the riskgame interface a bit to make
+			  more consistant and robust.
+			o First hooks for computer players.
+			o SO_LINGER option for server socket so that
+			  it doesn't hang around (I hope).
+			o MSG_NETPOPUP for sending messages that result
+			  in a popup dialog box.
+			o MSG_POPUPREGISTERBOX for telling client to
+			  do exactly that.
+			o Assertion failures dump core so that one can
+			  obtain a call stack of when the assertion failed,
+			  and print out the assertion that failed, as well 
+			  as the message.
+			o Any clients that show up after the game starts
+			  are taken as observers.  Their local copy of the
+			  Distributed object is updated when they connect.
+			  They can, of course, register players the next game.
+			o Cleaned up the server.  It now only has one case
+			  statement to handle all incoming messages.
+			o Each client now uses only one socket (what was
+			  I thinking? :)
+			o If there aren't enough free colors, Frisk allocates
+			  its own colormap.
+			o Middle mouse button now places all armies, per
+			  request of Michael Davies.
+		
+		    Fixed:
+			o Missing parameter in debug.h macro. (7.14.94)
+			o Change RISK_[Send|Receive] to return Boolean 
+			  "Failure occured." (10.1.94)
+			o Not double-checking attack dice. (8.27.94)
+			o Bug in RISKGAME_SelectiveReplicate. (7.16.94)
+			o File descriptor problem (HPs). (7.27.94)
+			o Off by one bug in checking max clients. (7.27.94)
+			o Color indices of players (make them 
+		          per-client -- oops :). (8.28.94)
+			o World colors show up at the beginning, instead of
+			  whatever was there in the colormap before. (8.28.94)
+			o Fixed (rewrote) the end of game code. (8.28.94)
+			o The card window crashing the client bug. (9.2.94)
+			o Armies == -1 bug with new game. (9.1.94)
+			o Set the default border color to be black. (9.28.94)
+			o Fixed the message sending.  Private messages now 
+			  work correctly. (10.02.94)
+			o Numerous other little bugs.
+
+	o v0.99a - Added:
+			o Memory debugging library.
+			o Cleaned up exiting method.
+
+		   Fixed:
+			o Most memory leaks.
+			o Card rendering bug. (6.25.94)
+
+	o v0.99  - The first version ready for distribution.
+
+Before release...
+
+	o Speed up the map loading (2.21.94)
+	o Build a routine NET_SendSyncMess that handles incoming messages, 
+	  dispatches those not == to the type waited for, and then returns!!!!
+	  (3.4.94)
+	o Factor out the UPDATE code so that it can be used in a local
+	  case and a remote case, into a RISK_ file.  RISK_MoveArmies(),
+	  RISK_PlaceArmies(), RISK_Attack(), etc... (3.4.94)
+	o Optimize for the local case, so that data is kept, and server
+	  messages coming from client that receives them is ignored.
+	  (3.4.94 -- Server doesn't send msg to client that it got it from)
+	o See if in the vector of attackable countries there are any that
+	  are attackable from the selected country.  Also check to see that
+	  there are enough armies to attack. (3.5.94)
+	o Make the square to the left of the message turn the color of the
+	  current player. (3.6.94)
+	o Create the "Number of armies?" popup. (3.7.94)
+	o Make the dice change to the color of the dice rolling players. 
+	  (3.4.94)
+	o Vectors of attackable countries. (3.4.94)
+	o Glue for registration (translation, Enter, etc...). (3.14.94)
+	o Fix deck so that it works like a real deck of cards. (3.17.94)
+	o Fix a possible placement bug (==> -1).  Two clicks close together
+	  can result in two armies being placed for one player.  PROBLEM is 
+	  when player clicks after message is sent, and before new TURN_NOTIFY
+ 	  message arrives -- does this call for my first use of 
+	  SendSyncMessage ?!?!?  Yes.  (3.17.94)
+	o Bonuses for owning whole continents.
+	o Make the text showing the # of armies text turn white when the 
+	  country is selected for something!
+	o Detect winning/losing.
+	o Cards for taking a country.
+	o Fix the joker crashing problem.
+	o Fix the problem that calculates wrong Card Types.
+	o XtGrabKeyboard for the popup -- can't seem to do it. 
+	o Help system. (4.1.94)
+	o Make the text widget resize itself depending on the text length
+	  in the help popup.
+	o Make the game start on a random player, instead of the first that 
+	  connects.
+	o Fix the centering of the name for the cards.
+	o Fix the parts of Frisk specific to network play (it's broken 
+	  right now).
+	o Design dialog box (Yes/No, etc.) ==> Quit confirm box.
+	o Detect end of game.
+	o New game option --> More players, Same players, New players.
+	o Change CARDPACKET to include a player.  >=5 cards forces 
+	  exchange rule.  Implement getting cards just through callbacks.
+	  (4.11.94)
+	o Dead player gives player cards rule. (4.11.94)
+	o Do the exposure handling for the dice. (4.11.94)
+	o Clean up RiskGame to be a clean distributed object. (5.3.94)
+	o Sending messages to each other (glue, translations). (5.3.94)
+	o Translations for <Enter>, <Tab>, etc. (5.3.94)
+	o Fix that players put one too many armies down at start. (5.3.94)
+	o Fix that size of message popup box buttons don't change. (5.4.94)
+	o Fix two cards come out identical bug? (5.5.94) [Haven't seen it...]
+	o Draw the lines between countries. (5.5.94)
+	o Do the colormap stuff, check for black/white, reserve them. (5.5.94)
+	o Fix player's deaths. (5.6.94)
+	o Fix end of game condition. (5.6.94)
+	o Handle the case that too many players/clients register. (5.6.94)
+	o Add message(s)/functions that allow server to reset/restart. (5.6.94)
+	o Add message(s), etc. to update client who is joining late. (5.6.94)
+	o Integrate error handling, add X popup support, global Exit func.
+	  (5.10.94)
+	o Fix bugs in giving dead player's cards away (more than one exchange).
+	  (5.10.94)
+	o Fix you seeing the other person's cards... (5.12.94)
+	o Change fdMin/Max to be a map of descriptors. (5.13.94)
+	o Implement voting for restarting. (5.13.94)
+	o Fix race condition when 2+ players register at once.
+	  This only occurs in Registration, since at other times, only
+	  one player is active.  Move AllocPlayer/FreePlayer into server...
+	  (5.15.94)
+	o Fix game restarting. (5.16.94)
+	o fix message destinations, (not appearing on dest. machine). (5.16.94)
+	o Keep track of the info that passes through (_UPDATEs), so that
+	  in case of a client failure, it can be revived. (5.3.94)
+	  (Through RiskGame distributed object.)
+	o Finish Help. (5.16.94)
+	o Finishing touches to Map. (5.17.94)
+	o Fix so that 24 bit X servers work (incorporate patches). (5.19.94)
+	o Add message so that network play is more verbose for player. 
+	  (5.19.94)
+	o Warning message when you select start registration with nonempty
+	  dialog. (5.19.94)
+	o Clean up debug.c/h. (5.19.94)
+	o Add keeping track of the attack die & msg dest just like attack mode.
+	  (5.19.94)
+	o Fix Do-or-Die with a set attack die. (5.19.94)
+	o Draw line betwen Japan and mainland. (5.19.94)
+	o Dotted line between Britain and Northern Europe. (5.19.94)
+	o Write an Imakefile. (5.20.94)
+	o XFlush to speed up army placement? (5.20.94)
+	o Clean up debug.h/c and integrate into project.
+	o Destroy messages when finished with them ==> NET_DestroyMessage().
+	  (6.24.94)
+	o Add a uniform way to exit, i.e. UTIL_FatalError(str)
+

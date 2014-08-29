@@ -1,0 +1,55 @@
+  $Id: INSTALL,v 1.6 2000/01/20 18:18:14 morphy Exp $
+
+0.  YOU NEED AN ANSI C COMPILER!  A C++ compiler may also work (try it!)  
+    XFrisk will eventually be rewritten in C++ anyway :) POSIX compliance 
+    would probably help.
+
+
+1.  Edit the Makefile to suit your system and taste. Imake is no
+    longer used. GNU autoconf might be used in the future.
+
+    NOTE: XFrisk is forgiving. If it can't find its data files, it
+    looks in the current directory. So if you're just trying XFrisk
+    out, you can just type `make' to get fully working binaries
+    without any need for root privilege or installing anything.
+
+
+2.  Compile. Type `make'. If that bombs, try `gmake'. If that bombs,
+    edit the Makefile and take out the line that says
+    "include depend.mk", do `make types.h', and then try again.
+    
+    More make options:
+	-make friskserver
+        	to compile only server
+        -make ai
+        	to compile ai's
+        -make uninstall
+        	will try to uninstall the installed file. 
+                this will of course only work if you don't change 
+                PREFIX in Makefile
+
+    Then install with `make install'.
+    
+
+3.  Try it out by running `friskserver' and then `xfrisk <host>.'  You can run
+    the former in the background if you wish.  For <host>, put in the name 
+    of the machine on which the server is running.  For example, if both
+    are running on the same machine, then type:
+
+	> friskserver &
+	> xfrisk 127.0.0.1
+
+    Or if the last command fails, try:
+
+	> xfrisk localhost
+
+    Or you can just run the `risk' script, which does this for you.  It uses
+    localhost.  If 127.0.0.1 works for you, then edit the script and change
+    it.  If both localhost and 127.0.0.1 (loopback device) fail for you, 
+    try the actual name of your machine (you can do this through
+        > xfrisk `hostname`
+    which you can also put in the script).
+
+
+4.  Enjoy it!
+
